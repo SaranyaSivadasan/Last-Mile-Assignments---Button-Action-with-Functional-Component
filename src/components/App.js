@@ -2,20 +2,24 @@ import React, { Component, useState } from "react";
 import "./../styles/App.css";
 
 function App() {
-  const [para, setPara] = useState("");
-  const [paraId, setParaId] = useState("");
-  const setDetail = () => {
-    setPara(
-      `Hello, I've learnt to use the full-stack evaluation tool. This makes Me so happy`
-    );
-    setParaId("para");
+  const [text, setText] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    setText(true);
   };
   return (
     <div id="main">
-      <button id="click" onClick={setDetail}>
-        RenderPara
+      <button id="click" onClick={handleClick}>
+        Click
       </button>
-      <p id={paraId}>{para}</p>
+      {text === true ? (
+        <p id="para">
+          Hello, I've learnt to use the full-stack evaluation tool. This makes
+          me so happy
+        </p>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
